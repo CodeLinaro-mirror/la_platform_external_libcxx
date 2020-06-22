@@ -57,6 +57,12 @@ cc_library_static {
     vendor_available: true,
     ramdisk_available: true,
     recovery_available: true,
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    // being part of updatable apexes, this should work on older releases
+    min_sdk_version: "apex_inherit",
     native_bridge_supported: true,
     srcs: [
         "src/algorithm.cpp",
@@ -114,6 +120,12 @@ cc_library_shared {
     },
     ramdisk_available: true,
     recovery_available: true,
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    // being part of updatable apexes, this should work on older releases
+    min_sdk_version: "apex_inherit",
     whole_static_libs: ["libc++_static"],
     stl: "none",
 
